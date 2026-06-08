@@ -1,0 +1,49 @@
+{
+  "schema_version": 1,
+  "name": "openlibrary-wikidata",
+  "source": {
+    "instance_id": "instance_internetarchive__openlibrary-4a5d2a7d24c9e4c11d3069220c0685b736d5ecde-v13642507b4fc1f8d234172bf8129942da2c2ca26",
+    "repo": "internetarchive/openlibrary",
+    "base_commit": "90475fb6c168e8317e22bd5fbe057d98e570a715",
+    "fix_commit": "4a5d2a7d24c9e4c11d3069220c0685b736d5ecde",
+    "repo_language": "python"
+  },
+  "environment": {
+    "image": "jefzda/sweap-images:internetarchive.openlibrary-internetarchive__openlibrary-4a5d2a7d24c9e4c11d3069220c0685b736d5ecde-v13642507b4fc1f8d234172bf81299",
+    "platform": "linux/amd64",
+    "workdir": "/app",
+    "image_digest": "sha256:580f9ff4a940397196502069987e7311b5f00a95ffd9c5c7b44aa3974a844544"
+  },
+  "setup": {
+    "reset_commands": [
+      "git reset --hard 90475fb6c168e8317e22bd5fbe057d98e570a715",
+      "git clean -fd",
+      "git checkout 90475fb6c168e8317e22bd5fbe057d98e570a715"
+    ],
+    "hidden_test_mode": "git_checkout",
+    "hidden_test_paths": [
+      "openlibrary/tests/core/test_wikidata.py"
+    ]
+  },
+  "test": {
+    "runner": "pytest",
+    "command_template": "python -m pytest -p no:cacheprovider -rA {tests}",
+    "visible_test_paths": [],
+    "timeout_seconds": 900
+  },
+  "grading": {
+    "fail_to_pass": [
+      "openlibrary/tests/core/test_wikidata.py::test_get_statement_values"
+    ],
+    "pass_to_pass": [
+      "openlibrary/tests/core/test_wikidata.py::test_get_wikidata_entity[True-True--True-False]",
+      "openlibrary/tests/core/test_wikidata.py::test_get_wikidata_entity[True-False--True-False]",
+      "openlibrary/tests/core/test_wikidata.py::test_get_wikidata_entity[False-False--False-True]",
+      "openlibrary/tests/core/test_wikidata.py::test_get_wikidata_entity[False-False-expired-True-True]",
+      "openlibrary/tests/core/test_wikidata.py::test_get_wikidata_entity[False-True--False-True]",
+      "openlibrary/tests/core/test_wikidata.py::test_get_wikidata_entity[False-True-missing-True-True]",
+      "openlibrary/tests/core/test_wikidata.py::test_get_wikidata_entity[False-True-expired-True-True]",
+      "openlibrary/tests/core/test_wikidata.py::test_get_wikipedia_link"
+    ]
+  }
+}

@@ -1,0 +1,23 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.eggs/
+build/
+dist/
+.venv/
+venv/
+
+# Tooling
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.DS_Store
+
+# Runtime state: the local task store (SQLite DB + run artifacts).
+# These are generated per-machine; we commit ONE curated example report
+# under bundles/<task>/example-report.json instead (see README).
+.taskbundle/
+
+# Scaffolded repo checkouts created by `task init --repo` for generic tasks.
+**/repo/

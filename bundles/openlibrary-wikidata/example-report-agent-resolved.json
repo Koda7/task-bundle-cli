@@ -1,0 +1,71 @@
+{
+  "kind": "run",
+  "run_id": "run_91d657bb",
+  "bundle": "openlibrary-wikidata",
+  "instance_id": "instance_internetarchive__openlibrary-4a5d2a7d24c9e4c11d3069220c0685b736d5ecde-v13642507b4fc1f8d234172bf8129942da2c2ca26",
+  "repo": "internetarchive/openlibrary",
+  "base_commit": "90475fb6c168e8317e22bd5fbe057d98e570a715",
+  "solver": "openai-agent",
+  "model": "gpt-4o",
+  "image": "jefzda/sweap-images:internetarchive.openlibrary-internetarchive__openlibrary-4a5d2a7d24c9e4c11d3069220c0685b736d5ecde-v13642507b4fc1f8d234172bf81299",
+  "image_digest": "sha256:580f9ff4a940397196502069987e7311b5f00a95ffd9c5c7b44aa3974a844544",
+  "resolved": true,
+  "duration_ms": 86883,
+  "summary": {
+    "fail_to_pass": {
+      "passed": 1,
+      "total": 1
+    },
+    "pass_to_pass": {
+      "passed": 8,
+      "total": 8
+    }
+  },
+  "tests": {
+    "fail_to_pass": [
+      {
+        "id": "openlibrary/tests/core/test_wikidata.py::test_get_statement_values",
+        "status": "passed"
+      }
+    ],
+    "pass_to_pass": [
+      {
+        "id": "openlibrary/tests/core/test_wikidata.py::test_get_wikidata_entity[True-True--True-False]",
+        "status": "passed"
+      },
+      {
+        "id": "openlibrary/tests/core/test_wikidata.py::test_get_wikidata_entity[True-False--True-False]",
+        "status": "passed"
+      },
+      {
+        "id": "openlibrary/tests/core/test_wikidata.py::test_get_wikidata_entity[False-False--False-True]",
+        "status": "passed"
+      },
+      {
+        "id": "openlibrary/tests/core/test_wikidata.py::test_get_wikidata_entity[False-False-expired-True-True]",
+        "status": "passed"
+      },
+      {
+        "id": "openlibrary/tests/core/test_wikidata.py::test_get_wikidata_entity[False-True--False-True]",
+        "status": "passed"
+      },
+      {
+        "id": "openlibrary/tests/core/test_wikidata.py::test_get_wikidata_entity[False-True-missing-True-True]",
+        "status": "passed"
+      },
+      {
+        "id": "openlibrary/tests/core/test_wikidata.py::test_get_wikidata_entity[False-True-expired-True-True]",
+        "status": "passed"
+      },
+      {
+        "id": "openlibrary/tests/core/test_wikidata.py::test_get_wikipedia_link",
+        "status": "passed"
+      }
+    ]
+  },
+  "solver_report": {
+    "ok": true,
+    "message": "agent submitted a solution",
+    "steps": 6
+  }
+}

@@ -1,0 +1,32 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "task-bundle-cli"
+version = "0.1.0"
+description = "A CLI + Docker harness for packaging, validating, and solving containerized coding tasks (SWE-bench style)."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+dependencies = [
+    "typer>=0.12",
+    "rich>=13.7",
+    "pydantic>=2.6",
+    # SWE-Bench Pro ingestion: read a single parquet row from HuggingFace.
+    # hf_hub_download keeps this light (no heavy `datasets` dependency).
+    "huggingface_hub>=0.23",
+    "pyarrow>=15",
+]
+
+[project.optional-dependencies]
+# The OpenAI agent solver is a stretch feature; keep its dep optional so the
+# core harness installs and runs without it.
+agent = ["openai>=1.30"]
+dev = ["pytest>=8.0"]
+
+[project.scripts]
+task = "task_bundle.cli:app"
+
+[tool.setuptools.packages.find]
+where = ["src"]
